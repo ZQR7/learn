@@ -3,6 +3,10 @@ package edu.hubu.learn.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import edu.hubu.learn.dao.NewsDao;
@@ -19,6 +23,9 @@ public class NewsService {
     }
     public List<News> getNewss() {
         return newsDao.findAll();
+    }
+    public News addNews(News news) {
+        return newsDao.save(news);
     }
 
 }
