@@ -4,7 +4,7 @@
 <table>
 <#list newss as news>
 <tr>
-<td>${news.title}</td><td>${news.content}</td>
+<td>${news.id}</td><td>${news.title}</td><td>${news.content}</td>
 </tr>
 </#list>
 </table>
