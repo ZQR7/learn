@@ -14,11 +14,6 @@ import edu.hubu.learn.service.NewsService;
 @RequestMapping("/")
 public class IndexController {
 
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private NewsService newsService;
 
 
     @RequestMapping("/")
@@ -28,21 +23,5 @@ public class IndexController {
         return mav;
     }
 
-    @RequestMapping("/user")
-    public ModelAndView user() {
-        ModelAndView mav = new ModelAndView();
-        User user = userService.getUser(1l);
-        mav.addObject("user", user);
-        mav.setViewName("user");
-        return mav;
-    }
 
-    @RequestMapping("/news123")
-    public ModelAndView news() {
-        ModelAndView mav = new ModelAndView();
-        News news = newsService.getNews(1L);
-        mav.addObject("iii", news);
-        mav.setViewName("abc");
-        return mav;
-    }
 }
