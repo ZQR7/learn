@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import edu.hubu.learn.service.UserService;
+import edu.hubu.learn.service.NewsService;
 import junit.framework.TestCase;
 
 @RunWith(SpringRunner.class)
@@ -14,14 +14,14 @@ import junit.framework.TestCase;
 public class ApplicationTests {
 
     @Autowired
-    private UserService userService;
+    private NewsService newsService;
 
 	@Test
-	public void testUser() {
-		String username = userService.getUser(1l).getUsername();
-		String password = userService.getUser(1l).getPassword();
-		TestCase.assertEquals(username, "root");
-		TestCase.assertEquals(password, "1234");
+	public void testNews() {
+		String title = newsService.getNews(1l).getTitle();
+		String content = newsService.getNews(1l).getContent();
+		TestCase.assertEquals(title, "root");
+		TestCase.assertEquals(content, "1234");
 	}
 
 }
