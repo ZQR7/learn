@@ -15,4 +15,7 @@ public class News {
     private String title;
 
     private String content;
+
+    @Column(name="avatar_url")
+    private String avatar;
 }

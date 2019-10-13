@@ -24,6 +24,7 @@
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation"><a href="/news/list">列表</a></li>
           <li role="presentation" class="active"><a href="/news/add">新增</a></li>
+           <li role="presentation"><a href="/user/search">搜索</a></li>
         </ul>
       </div>
       <div class="col-md-8">      
@@ -34,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="content">新闻内容</label>
-                <input type="text" class="form-control" id="content" name="content" placeholder="请输入新闻标题">
+                <input type="text" class="form-control" id="content" name="content" placeholder="请输入新闻内容">
             </div>
             <button type="submit" class="btn btn-default">确认</button>
         </form>

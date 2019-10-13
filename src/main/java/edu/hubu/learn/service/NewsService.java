@@ -22,10 +22,31 @@ public class NewsService {
         return newsDao.findById(id).get();
     }
     public List<News> getNewss() {
-        return newsDao.findAll();
+        return newsDao.findAll(new Sort(Direction.DESC, "id"));
     }
     public News addNews(News news) {
         return newsDao.save(news);
+    }
+
+    public List<News> searchNews(String keyword) {
+        News news = new News();
+        news.setTitle(keyword);
+        ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("title", match->match.contains());
+        Example<News> example = Example.of(news, matcher);
+        Sort sort = new Sort(Direction.DESC, "id");
+        return newsDao.findAll(example, sort);
+    }
+
+    public News addNews(News news) {
+        return newsDao.save(news);
+    }
+
+    public void deleteNews(Long id) {
+        newsDao.deleteById(id);
+    }
+
+    public void modifyNews(News news) {
+        newsDao.save(news);
     }
 
 }
