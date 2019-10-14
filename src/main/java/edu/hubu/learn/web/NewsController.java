@@ -92,7 +92,7 @@ public class NewsController {
     public ModelAndView doSearchNews(HttpServletRequest httpRequest) {
         ModelAndView mav = new ModelAndView();
         String keyword = httpRequest.getParameter("keyword");
-        List<News> newss = newsService.searchNewss(keyword);
+        List<News> newss = newsService.searchNews(keyword);
         mav.addObject("newss", newss);
         mav.setViewName("newss");
         return mav;

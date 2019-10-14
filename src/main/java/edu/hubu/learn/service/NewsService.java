@@ -46,8 +46,6 @@ public class NewsService {
     public void modifyNews(News news) {
         newsDao.save(news);
     }
-	public List<News> searchNewss(String keyword) {
-		return null;
-	}
+
 
 }
