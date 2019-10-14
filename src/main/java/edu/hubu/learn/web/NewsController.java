@@ -69,7 +69,7 @@ public class NewsController {
     @RequestMapping("/modify/{id}")
     public ModelAndView modifyNews(@PathVariable Long id) {
         ModelAndView mav = new ModelAndView();
-        mav.addObject("News", newsService.getNews(id));
+        mav.addObject("news", newsService.getNews(id));
         mav.setViewName("news_modify");
         return mav;
     }
