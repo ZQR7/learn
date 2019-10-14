@@ -31,15 +31,15 @@
       <div class="col-md-8">      
         <table class="table table-hover">
           <thead>
-          <th>ID</th><th>新闻标题</th><th>新闻内容</th><th>头像</th><th>删除</th><th>修改</th><th>头像</th>
+          <th>ID</th><th>新闻标题</th><th>新闻内容</th>><th>删除</th><th>修改</th>
           </thead>
           <tbody>
           <#list newss as news>
           <tr>
-          <td>${news.id}</td><td>${news.title}</td><td>${news.content}</td><td>${news.avatar}</td>
+          <td>${news.id}</td><td>${news.title}</td><td>${news.content}</td>
           <td><a href="/news/delete/${news.id}">删除</a></td>
           <td><a href="/news/modify/${news.id}">修改</a></td>
-          <td><a href="/news/add_avatar/${news.id}">上传</a></td>
+  
           </tr>
           </#list>
           </tbody>

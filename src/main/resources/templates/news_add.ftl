@@ -24,11 +24,11 @@
         <ul class="nav nav-pills nav-stacked">
           <li role="presentation"><a href="/news/list">列表</a></li>
           <li role="presentation" class="active"><a href="/news/add">新增</a></li>
-           <li role="presentation"><a href="/user/search">搜索</a></li>
+           <li role="presentation"><a href="/news/search">搜索</a></li>
         </ul>
       </div>
       <div class="col-md-8">      
-        <form action="/user/do_add">
+        <form action="/news/do_add">
             <div class="form-group">
                 <label for="title">新闻标题</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="请输入新闻标题">

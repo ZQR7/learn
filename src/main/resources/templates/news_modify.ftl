@@ -30,7 +30,7 @@
       </div>
       <div class="col-md-8">      
         <form action="/news/do_modify">
-            <input type="hidden"id="id" name="id" value="${user.id}">
+            <input type="hidden"id="id" name="id" value="${news.id}">
             <div class="form-group">
                 <label for="title">新闻标题</label>
                 <input type="text" class="form-control" id="title" name="title" value="${news.title}" placeholder="请输入新闻标题">

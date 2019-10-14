@@ -76,7 +76,6 @@ public class NewsController {
 
     @RequestMapping("/do_modify")
     public ModelAndView doModifyNews(News news) {
-        news.setAvatar("");
         newsService.modifyNews(news);
         ModelAndView mav = new ModelAndView("redirect:/news/list");
         return mav;
@@ -90,7 +89,7 @@ public class NewsController {
     }
 
     @RequestMapping("/do_search")
-    public ModelAndView doSearchUser(HttpServletRequest httpRequest) {
+    public ModelAndView doSearchNews(HttpServletRequest httpRequest) {
         ModelAndView mav = new ModelAndView();
         String keyword = httpRequest.getParameter("keyword");
         List<News> newss = newsService.searchNewss(keyword);
@@ -99,28 +98,6 @@ public class NewsController {
         return mav;
     }
 
-    @RequestMapping("/add_avatar/{id}")
-    public ModelAndView addUserAvatar(@PathVariable Long id) {
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("news", newsService.getNews(id));
-        mav.setViewName("news_add_avatar");
-        return mav;
-    }
 
-    @RequestMapping("/do_add_avatar/{id}")
-    public ModelAndView doAddUserAvatar(@RequestParam("avatar") MultipartFile file, @PathVariable Long id) {
-        try {
-            String fileName = file.getOriginalFilename();
-            String filePath = ResourceUtils.getURL("classpath:").getPath() + "../../../resources/main/static/";
-            File dest = new File(filePath + fileName);
-            log.info(dest.getAbsolutePath());
-            file.transferTo(dest);
-            News news = newsService.getNews(id);
-            news.setAvatar(fileName);
-            newsService.modifyNews(news);
-        } catch (Exception e) {
-            log.error("upload avatar error", e.getMessage());
-        }
-        return new ModelAndView("redirect:/news/list");
-    }
+
 }
