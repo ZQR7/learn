@@ -24,9 +24,7 @@ public class NewsService {
     public List<News> getNewss() {
         return newsDao.findAll(new Sort(Direction.DESC, "id"));
     }
-    public News addNews(News news) {
-        return newsDao.save(news);
-    }
+  
 
     public List<News> searchNews(String keyword) {
         News news = new News();
@@ -48,5 +46,8 @@ public class NewsService {
     public void modifyNews(News news) {
         newsDao.save(news);
     }
+	public List<News> searchNewss(String keyword) {
+		return null;
+	}
 
 }
