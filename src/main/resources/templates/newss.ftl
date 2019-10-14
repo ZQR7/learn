@@ -31,7 +31,7 @@
       <div class="col-md-8">      
         <table class="table table-hover">
           <thead>
-          <th>ID</th><th>新闻标题/th><th>新闻内容</th><th>头像</th><th>删除</th><th>修改</th><th>头像</th>
+          <th>ID</th><th>新闻标题</th><th>新闻内容</th><th>头像</th><th>删除</th><th>修改</th><th>头像</th>
           </thead>
           <tbody>
           <#list newss as news>
