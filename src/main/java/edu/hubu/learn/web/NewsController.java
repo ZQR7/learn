@@ -98,6 +98,30 @@ public class NewsController {
         return mav;
     }
 
+     @RequestMapping("/add_avatar/{id}")
+    public ModelAndView addNewsAvatar(@PathVariable Long id) {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("news", newsService.getNews(id));
+        mav.setViewName("news_add_avatar");
+        return mav;
+    }
+
+    @RequestMapping("/do_add_avatar/{id}")
+    public ModelAndView doAddNewsAvatar(@RequestParam("avatar") MultipartFile file, @PathVariable Long id) {
+        try {
+            String fileName = file.getOriginalFilename();
+            String filePath = ResourceUtils.getURL("classpath:").getPath() + "../../../resources/main/static/";
+            File dest = new File(filePath + fileName);
+            log.info(dest.getAbsolutePath());
+            file.transferTo(dest);
+            News news = newsService.getNews(id);
+            news.setAvatar(fileName);
+            newsService.modifyNews(news);
+        } catch (Exception e) {
+            log.error("upload avatar error", e.getMessage());
+        }
+        return new ModelAndView("redirect:/news/list");
+    }
 
 
 }
